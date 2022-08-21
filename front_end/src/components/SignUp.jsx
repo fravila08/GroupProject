@@ -1,9 +1,18 @@
 import axios from 'axios'
+import React, { useState } from 'react';
+import {
+  MDBContainer,
+  MDBTabsPane,
+  MDBBtn,
+  MDBIcon,
+  MDBInput,
+  MDBCheckbox
+} from 'mdb-react-ui-kit';
+import Form from 'react-bootstrap/Form';
 
-function SignUp(){
+function SignUp({handleJustifyClick, justifyActive}){
     function signUp(){
         // this will come into effect once the it's a form to submit not a button you'll use get elementbyid().value to get the form values
-        event.preventDefault()
         let name=document.getElementById('name').value
         let lastName= document.getElementById('lastName').value
         let jobTitle=document.getElementById('jobTitle').value
@@ -21,24 +30,31 @@ function SignUp(){
           console.log('response from server: ', response)
         })
       }
+
       return(
           <div>
-              <label>First Name: </label>
-              <input id='name' placeholder='ex: pacho'/>
-              <br/>
-              <label>Last Name: </label>
-              <input id='lastName' placeholder='ex: villa' />
-              <br/>
-              <label>Job Title: </label>
-              <input id='jobTitle' placeholder='ex: engineer'/>
-              <br/>
-              <label>Email: </label>
-              <input id='email' placeholder='ex: pancho@gmail.com'/>
-              <br/>
-              <label>Password: </label>
-              <input id='password'/>
-              <br/>
-              <button onClick={signUp}>Sign Up</button>
+
+            <MDBInput wrapperClass='mb-2' label='First Name' id='name' type='text'/>
+            <MDBInput wrapperClass='mb-2' label='Last Name' id='lastName' type='text'/>
+            <MDBInput wrapperClass='mb-2' label='Email' id='email' type='email'/>
+            <MDBInput wrapperClass='mb-2' label='Password' id='password' type='password'/>
+            <Form.Select>
+              <option>Select A Job Title</option>
+              <option>Software Developer</option>
+              <option>Sales Engineer</option>
+              <option>Product Manager</option>
+              <option>Surfer Dude</option>
+            </Form.Select>
+            <div className='d-flex justify-content-center mb-2'>
+              <MDBCheckbox name='flexCheck' id='flexCheckDefault' label='I have read and agree to the terms' />
+            </div>
+
+            <MDBBtn id="signup-btn" className="mb-2 w-100" onClick={signUp}>Sign Up</MDBBtn>
+          <p className="text-center">Already have an account? &nbsp; 
+           <a href='#' onClick={() => handleJustifyClick('tab1')} active={justifyActive === 'tab1'}>
+             Log in
+           </a>
+          </p>
           </div>
       )
 }

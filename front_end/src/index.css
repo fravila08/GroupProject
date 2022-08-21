@@ -1,4 +1,21 @@
-/* :root {
+body {
+  font-family: Roboto, Helvetica, Arial, sans-serif;
+}
+
+#signin-btn, #signup-btn {
+ margin: 0;
+}
+
+
+#signin-divider {
+  border-bottom: 1px solid #999 ;
+  margin-top: 1em;
+}
+
+:root {
+  box-sizing: border-box;
+
+  /*
   font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
   font-size: 16px;
   line-height: 24px;
@@ -13,8 +30,10 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+  */
 }
 
+/*
 a {
   font-weight: 500;
   color: #646cff;

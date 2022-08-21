@@ -5,9 +5,16 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import Button from 'react-bootstrap/esm/Button';
 
 function NavBar(props) {
+  function signOut(event){
+    event.preventDefault()
+    axios.post('sign_out').then((response)=>{
+      console.log(response);
+      window.location.href=""
+    })
+  }
 
     return (
-        <Navbar className="brokenNavbar" bg="light" expand="lg">
+        <Navbar className="navbar" bg="light" expand="lg">
             <Container>
                 <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -25,6 +32,7 @@ function NavBar(props) {
                             <NavDropdown.Item href="#action/3.4">
                                 Separated link
                             </NavDropdown.Item>
+                            <button onClick={signOut}>Sign Out</button>
                         </NavDropdown>
                     </Nav>
                 </Navbar.Collapse>
