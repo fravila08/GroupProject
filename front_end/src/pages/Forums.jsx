@@ -132,7 +132,7 @@ export default function Forums({user}) {
       <div className="comment-form-title">Write a comment</div>
       <input id="comment-title" value={title} onChange={handleTitleEntry} ></input>
       <CommentForm className="d-flex flex-column-reverse" submitLabel="Write" handleSubmit={addComment} text={text} setText={setText} onChange={handleTextEntry} />
-      <div className="comments-container">
+      <div className="comments-container d-flex flex-column-reverse">
         { [...postsList].reverse().map((post) => {
           return <Comment isEditing={isEditing} setIsEditing={setIsEditing} 
           onChange={handleTextEntry} text={text} setText={setText} 

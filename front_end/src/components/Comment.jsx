@@ -12,7 +12,7 @@ import useState from 'react';
 
 
 
-function EditForm({ activePost } ) {
+function EditForm({ activePost, post } ) {
 
   //const [message, setMessage] = useState('');
 
@@ -29,12 +29,13 @@ function EditForm({ activePost } ) {
     console.log('active post', activePost);
     console.log(regularVar);
     let editedPost = axios.put(`forums`, { id: activePost, description: regularVar } );
-    console.log(editedPost);
+    editedPost = '<response from db will go here>';
+    post.description = editedPost;
   }
 
     return (
       <form onSubmit={onSubmit}>
-        <textarea class="form-control" id="comment-form-textarea" defaultValue="" onChange={handleEditChange} ></textarea>
+        <textarea class="form-control" id="comment-form-textarea" onChange={handleEditChange} ></textarea>
         <button type="submit" class="btn btn-primary btn-block mb-4 comment-form-button" onClick={editPost}>Edit</button>
       </form>
     )
@@ -96,7 +97,7 @@ export default function Comment({
           <MDBCardText className="comment-text">
             { activePost===id && isEditing &&
             <div>
-              <EditForm activePost={activePost} />
+              <EditForm activePost={activePost} post={post} />
             </div>
             }
             {
