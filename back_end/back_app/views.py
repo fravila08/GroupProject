@@ -135,20 +135,11 @@ def update_job(request, jobId):
 
     if request.method == "PUT":
         try:
-            job.company_link = request.data['link']
-            job.description = request.data['description']
-            job.company_name = request.data['company_name']
-            job.job_title = request.data['job_title']
-            if request.data['salary']:
-                job.salary = request.data['salary']
-            if request.data['location']:
-                job.location = request.data['location']
-            if request.data['date']:
-                job.date_completed = request.data['date']
-            job.save()
-            return Response({'msg', 'Job updated'})
+            job.update(
+                company_name=request.data['company_name'], job_title=request.data['job_title'], salary=request.data['salary'], location=request.data['location'])
+            return Response({'msg': 'Job updated'})
         except:
-            return Response({'msg', 'Job NOT updated'})
+            return Response({'msg': 'Job NOT updated'})
 
 
 @api_view(["GET", "POST"])

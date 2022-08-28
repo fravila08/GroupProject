@@ -35,19 +35,32 @@ function Dashboard(props) {
   const [addedJob, setAddedJob] = useState(false);
 console.log(currentJobs)
   //sets state of current jobs to current list based on back end request
+
+  const getJobs = () => {
+       axios.get("jobs").then((response) =>
+         setCurrentJobs(
+           response.data.map((job) => {
+             return {
+               id: job.id,
+               title: job.company_name,
+               description: job.job_title,
+               label: (
+                 <a href={job.company_link} target="_blank">
+                   <button type="button" class="btn-sm btn-primary btn-rounded">
+                     apply
+                   </button>
+                 </a>
+               ),
+               draggable: true,
+             };
+           })
+         )
+       );
+  }
   useEffect(() => {
     console.log(addedJob)
-    axios.get('jobs')
-      .then(response => setCurrentJobs(response.data.map(job => {
-        return {
-          id: job.id,
-          title: job.company_name,
-          description: job.job_title,
-          label:  <a href={job.company_link} target="_blank"><button type="button" class="btn-sm btn-primary btn-rounded">apply</button></a>,
-          draggable: true
-        }
-
-      })))
+    getJobs()
+ 
 
   }, [addedJob])
 
@@ -114,7 +127,7 @@ console.log(currentJobs)
       .then(console.log('job deleted'))
   };
   const editJob = () => {
-    console.log('editign card', activeCard);
+    console.log('editing card', activeCard);
     var jobEditing = currentJobs.find(job => {
       return job.id === activeCard;
     })
@@ -122,16 +135,26 @@ console.log(currentJobs)
     console.log('object being edited', jobEditing);
 
     let jobToEdit = {
+      // id: activeCard,
       company_name : companyName,
       job_title : jobTitle,
       salary : salary,
       location : location,
     }
     console.log(jobToEdit)
-    // axios.put(`jobs/${jobId}`, jobToEdit)
-    // .then(console.log('job edited'))
+    axios.put(`jobs/${activeCard}`, jobToEdit)
+    .then(response => {
+      if (response.data.msg === "Job updated"){
+        getJobs();
+        console.log(response.data.msg)}
+        else {
+          console.log(response.data.msg)
+        }
+      }
+      )
+    
 
-    console.log('job edited');
+
   };
 
 
@@ -200,7 +223,6 @@ console.log(currentJobs)
           id="EditableBoard1"
           onCardClick={onCardClick}
           onCardDelete={deleteJob}
-          // onDataChange={editJob}
         >
         </Board>
       </React.Fragment>
