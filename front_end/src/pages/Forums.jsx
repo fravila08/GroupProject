@@ -4,6 +4,7 @@ import CommentForm from '../components/CommentForm';
 import axios from 'axios';
 import '../Forums.css';
 import NavBar from '../components/NavBar';
+import {HiHome, HiOutlineUserGroup, HiOutlineViewGrid, HiChevronDown} from 'react-icons/hi';
 
 let commentsMocks = [
   {
@@ -40,22 +41,63 @@ let commentsMocks = [
   },
 ];
 
-function leftNavSidebar() {
+function LeftNavSidebar() {
+  return (
+    <nav class="HolyGrail-nav my-5 mx-4">
+      <div class="sticky top-[var(--c-top-bar-height)] max-h-[calc(100vh-var(--c-top-bar-height)-var(--frame-top-offset))] scrollbar-hide overscroll-contain w-[var(--frame-navigation-width)] shrink-0 mr-4 pr-1 hidden lg:block">
+        <div class="flex flex-col space-y-8 isolate w-full block-main-menu">
+          <div class="space-y-1" role="group">
+            <a class="cursor-pointer transition duration-100 ease-in-out group flex items-center leading-5 rounded-md w-full bg-main-200 text-basicMain-900 px-3 py-2">
+              <HiHome />
+              <span className="flex-grow truncate">
+                Home
+              </span>
+                  <HiChevronDown /> 
+            </a>
+            <a class="cursor-pointer transition duration-100 ease-in-out group flex items-center leading-5 rounded-md w-full bg-main-200 text-basicMain-900 px-3 py-2">
+              <HiOutlineUserGroup />
+              <span className="flex-grow truncate">
+                Members
+              </span>
+            </a>
+            <a class="cursor-pointer transition duration-100 ease-in-out group flex items-center leading-5 rounded-md w-full bg-main-200 text-basicMain-900 px-3 py-2">
+              <HiOutlineViewGrid />
+              <span className="flex-grow truncate">
+                Spaces
+              </span>
 
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+  )
 }
 
 function ProfileSidebar({user}) {
   return (
-    <div class="hidden web:col-span-12 lg:block lg:order-2 web:lg:col-span-4">
-      <ul class="flex flex-col -my-2.5">
-        <div class="bg-surface-50 text-basicSurface-500 shadow flex flex-col justify-between sm:rounded-lg overflow-hidden block-welcome-member">
-          
+    <div class="ml-auto my-5 x-4 bg-white text-basicSurface-500 shadow flex flex-col justify-between sm:rounded-lg overflow-hidden block-welcome-member"><div class="h-20 w-full object-cover lg:h-28 group relative overflow-hidden">
+        <div class="h-32 w-full lg:h-48 bg-main-200">
+          <img src="/images/banners/banner-2.jpg" alt="gads" />
         </div>
-        <div class="flex-1 px-4 py-5 sm:p-6 overflow-hidden text-center">
-          <div class="text-sm mb-5 text-basicSurface-400">Good morning,</div>
-          <div class="text-xl mb-1 text-basicSurface-900 font-medium truncate"><a href="/member/DcCEolocve">{user && user.first_name}</a></div>
-        </div>
-      </ul>
+    </div>
+    <div class="-mt-16 flex justify-center"><div><div class="hover:bg-surface-200 rounded-full relative">
+          <span class="inline-flex relative items-center justify-center flex-shrink-0 bg-surface-200 rounded-full h-24 w-24 ring-2 bg-surface-50 ring-surface-50">
+            <span class="text-2xl font-medium leading-none text-basicSurface-500">
+              g
+            </span>
+          </span>
+      <input type="file" class="hidden" />
+      <div class="flex items-center justify-center rounded-full text-white bg-black bg-opacity-50 opacity-0 hover:opacity-90 absolute top-0 bottom-0 left-0 right-0 cursor-pointer">
+        Change
+      </div>
+    </div>
+        </div></div><div class="flex-1 px-4 py-5 sm:p-6 overflow-hidden text-center"><div class="text-sm mb-5 text-basicSurface-400">Good afternoon,</div><div class="text-xl mb-1 text-basicSurface-900 font-medium truncate"><a href="/member/DcCEolocve">gads</a></div><div class="text-base mb-5 text-basicSurface-400 truncate"><a class="cursor-pointer transition duration-100 ease-in-out text-actionAccent-600 hover:text-actionAccentHover-500">Add tagline</a></div>
+
+            <a class="items-center relative focus:outline-none focus-visible:ring text-basicSurface-500 bg-surface-50 hover:bg-surface-100 font-medium shadow-sm px-4 py-2 text-base rounded-md border border-basicSurface-300/25 w-full flex justify-center mt-8" href="/profile">
+              <span class="flex"><span class="inline-flex items-center">View profile</span></span>
+            </a>
+      </div>
     </div>
   )
 }
@@ -95,7 +137,7 @@ export default function Forums({user}) {
       setLoading(true);
       try {
         const {data: response} = await axios.get('posts');
-        setPostsList(response);
+        setPostsList(response.reverse());
       } catch (error) {
         console.error(error.message);
       }
@@ -124,6 +166,7 @@ export default function Forums({user}) {
 
 
   const addComment = async(text) => {
+    let date = new Date();
     let newPost = {
       'description': text,
       'title': title,
@@ -131,21 +174,22 @@ export default function Forums({user}) {
       //parent id might be used for later iterations for nesting
       //'parentId': parentId,
       'company_name': "Google",
+      'date_created': date
     };
     try {
       let serializedPost = await axios.post('forums', newPost);
       let post = JSON.parse(serializedPost.data);
       let fields = post[0].fields;
-      let companyName = fields['company_name'];
-      let createdAt = fields['date_created'];
+      let company_name = fields['company_name'];
+      let date_created = fields['date_created'];
       let description = fields['description'];
-      let jobTitle = fields['job_title'];
+      let job_title = fields['job_title'];
       let title = fields['title'];
       let userId = String(fields['user']);
       let parentId = null;
       let id = post[0]['pk'];
       console.log(id);
-      post =  {id, companyName, description, jobTitle, title, userId, parentId}
+      post =  {id, company_name, description, date_created, job_title, title, userId, parentId}
       setPostsList([post, ...postsList]);
       //need response object to include this data + timeCreated, photo and user 
       //(or first and last name)
@@ -184,12 +228,9 @@ export default function Forums({user}) {
   <div class="overall-container min-h-screen flex flex-col layout layout-default ml-[calc(env(safe-area-inset-left))] mr-[calc(env(safe-area-inset-right))]">
     <body class="HolyGrail">
       <NavBar />
-      <header>…</header>
-      <div class="HolyGrail-body">
-        <main class="HolyGrail-content">
+      <div class="HolyGrail-body bg-light">
+        <main class="HolyGrail-content my-5">
          <div className="comments">
-            <h3 className="comments-title">Social Page</h3>
-            <div className="comment-form-title">Write a comment</div>
             <CommentForm className="d-flex flex-column-reverse" submitLabel="Write" 
               title={title} setTitle={setTitle} handleTitleEntry={handleTitleEntry} 
               handleSubmit={addComment} text={text} setText={setText} onChange={handleTextEntry} />
@@ -198,24 +239,9 @@ export default function Forums({user}) {
             </div>
           </div>
         </main>
-        <nav class="HolyGrail-nav">
-          <div class="sticky top-[var(--c-top-bar-height)] max-h-[calc(100vh-var(--c-top-bar-height)-var(--frame-top-offset))] scrollbar-hide overscroll-contain w-[var(--frame-navigation-width)] shrink-0 mr-4 pr-1 hidden lg:block">
-            <div class="flex flex-col space-y-8 isolate w-full block-main-menu">
-              <div class="space-y-1" role="group">
-                <a class="cursor-pointer transition duration-100 ease-in-out group flex items-center leading-5 rounded-md w-full bg-main-200 text-basicMain-900 px-3 py-2">
-                  <span className="flex-grow truncate">
-                    Home
-                  </span>
-                </a>
-              </div>
-            </div>
-          </div>
-        </nav>
-        <aside class="HolyGrail-ads">
-          <ProfileSidebar user={user} />
-        </aside>
+        <LeftNavSidebar />
+        <ProfileSidebar user={user} />
       </div>
-      <footer>…</footer>
     </body>
   </div>
 

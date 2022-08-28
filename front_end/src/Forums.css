@@ -2,7 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-
+.btn {
+  text-transform: unset !important;
+}
 
 
 .HolyGrail {
@@ -19,21 +21,25 @@
 .HolyGrail-body {
   display: flex;
   flex: 1;
+
 }
 
 .HolyGrail-content {
   flex: 1;
 }
 
+.comment {
+  margin-top: 1em;
+}
+
 
 .HolyGrail-ads {
-
-  flex: 0 0 18em;
+  flex: 0 0 20em;
 }
 
 
 .HolyGrail-nav {
   /* put the nav on the left */
-  flex: 0 0 22em;
+  flex: 0 0 18em;
   order: -1;
 }

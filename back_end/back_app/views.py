@@ -191,9 +191,12 @@ def posts(request):
             company_name = request.data['company_name']
             job_title = request.data['job_title']
             description = request.data['description']
+            date_created = request.data['date_created']
+            print('received date:', date_created)
             post = Posts.objects.create(
-                title=title, user=user, company_name=company_name, job_title=job_title, description=description)
+                title=title, user=user, company_name=company_name, job_title=job_title, description=description, date_created=date_created)
             post.save()
+            print('views.py: post created ', post.date_created)
             db_post = Posts.objects.get(id=post.id)
             json_post = serializers.serialize('json', {db_post})
             return JsonResponse(json_post, safe=False)

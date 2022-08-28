@@ -8,8 +8,15 @@ import {
 import 'react-bootstrap-icons';
 import axios from 'axios';
 import CommentForm from './CommentForm';
+import {HiOutlinePhotograph, HiPlusSm} from 'react-icons/hi';
+import {RiAttachment2} from 'react-icons/ri';
+import {TbMoodSmile} from 'react-icons/tb';
+import {BiSend} from 'react-icons/bi';
 import { useState, useEffect }  from 'react';
-
+import TimeAgo from 'javascript-time-ago'
+import en from 'javascript-time-ago/locale/en.json'
+TimeAgo.addDefaultLocale(en)
+import ReactTimeAgo from 'react-time-ago'
 
 function EditForm({ isEditing, setIsEditing, activePost, post } ) {
   const [message, setMessage]= useState(post.description);
@@ -30,8 +37,20 @@ function EditForm({ isEditing, setIsEditing, activePost, post } ) {
 
     return (
       <form onSubmit={onSubmit}>
-        <textarea class="form-control" id="comment-form-textarea" defaultValue={message} onChange={handleEditChange} ></textarea>
-        <button type="submit" class="btn btn-primary btn-block mb-4 comment-form-button" onClick={editPost}>MAKE EDIT</button>
+        <textarea class="resize-none form-control" id="comment-form-textarea" defaultValue={message} onChange={handleEditChange} ></textarea>
+        <div className="bottom-bar d-flex flex-row justify-content-between">
+          <div class="edit-icons d-flex d-inline-flex flex-row space-x-1 align-self-center">
+            <button class="btn bg-light"><TbMoodSmile/></button>
+            <button class="btn bg-light"><HiOutlinePhotograph/> </button>
+            <button class="btn bg-light"><RiAttachment2/>  </button>
+            <button class="btn bg-light"> <HiPlusSm/> </button>
+             
+          </div>
+          <div className="control-buttons">
+            <button onClick={() => setIsEditing(false)} class="btn bg-light">Cancel</button>
+            <button type="submit" class="btn btn-primary comment-form-button" onClick={editPost}><BiSend /></button>
+          </div>
+        </div>
       </form>
     )
 }
@@ -66,7 +85,7 @@ export default function Comment({
           let postId = activePost;
           let { data: remaining } = await axios.delete(`posts/${postId}`, { data: {postId: postId}});
           console.log('remaining:', remaining);
-          setPostsList(remaining);
+          setPostsList(remaining.reverse());
         }
         deleteAtId();
         setIsDeleting(false);
@@ -88,7 +107,10 @@ export default function Comment({
                 width="35"
               />
               <MDBCardGroup className="d-inline-flex flex-column text-meta">
-                <div>{post.createdAt}</div>
+                <div></div>
+                <div>
+                  <small>Published: <ReactTimeAgo date={post.date_created} locale="en-US"/></small>
+                </div>
               </MDBCardGroup>
 
             </MDBCardGroup>
