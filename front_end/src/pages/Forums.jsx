@@ -76,7 +76,6 @@ function LeftNavSidebar() {
 
 function ProfileSidebar({user}) {
   return (
-<<<<<<< HEAD
     <ul class="flex flex-col">
       <li>
         <div class="ml-auto my-5 mx-4 bg-white text-basicSurface-500 shadow flex flex-col justify-between sm:rounded-lg overflow-hidden block-welcome-member"><div class="h-20 w-full object-cover lg:h-28 group relative overflow-hidden">
@@ -105,31 +104,6 @@ function ProfileSidebar({user}) {
 
       </li>
     </ul>
-=======
-    <div class="ml-auto my-5 x-4 bg-white text-basicSurface-500 shadow flex flex-col justify-between sm:rounded-lg overflow-hidden block-welcome-member"><div class="h-20 w-full object-cover lg:h-28 group relative overflow-hidden">
-        <div class="h-32 w-full lg:h-48 bg-main-200">
-          <img src="/images/banners/banner-2.jpg" alt="gads" />
-        </div>
-    </div>
-    <div class="-mt-16 flex justify-center"><div><div class="hover:bg-surface-200 rounded-full relative">
-          <span class="inline-flex relative items-center justify-center flex-shrink-0 bg-surface-200 rounded-full h-24 w-24 ring-2 bg-surface-50 ring-surface-50">
-            <span class="text-2xl font-medium leading-none text-basicSurface-500">
-              g
-            </span>
-          </span>
-      <input type="file" class="hidden" />
-      <div class="flex items-center justify-center rounded-full text-white bg-black bg-opacity-50 opacity-0 hover:opacity-90 absolute top-0 bottom-0 left-0 right-0 cursor-pointer">
-        Change
-      </div>
-    </div>
-        </div></div><div class="flex-1 px-4 py-5 sm:p-6 overflow-hidden text-center"><div class="text-sm mb-5 text-basicSurface-400">Good afternoon,</div><div class="text-xl mb-1 text-basicSurface-900 font-medium truncate"><a href="/member/DcCEolocve">gads</a></div><div class="text-base mb-5 text-basicSurface-400 truncate"><a class="cursor-pointer transition duration-100 ease-in-out text-actionAccent-600 hover:text-actionAccentHover-500">Add tagline</a></div>
-
-            <a class="items-center relative focus:outline-none focus-visible:ring text-basicSurface-500 bg-surface-50 hover:bg-surface-100 font-medium shadow-sm px-4 py-2 text-base rounded-md border border-basicSurface-300/25 w-full flex justify-center mt-8" href="/profile">
-              <span class="flex"><span class="inline-flex items-center">View profile</span></span>
-            </a>
-      </div>
-    </div>
->>>>>>> baf13bf (merging master into own branch)
   )
 }
 
@@ -168,11 +142,7 @@ export default function Forums({user}) {
       setLoading(true);
       try {
         const {data: response} = await axios.get('posts');
-<<<<<<< HEAD
         setPostsList(response).reverse();
-=======
-        setPostsList(response.reverse());
->>>>>>> baf13bf (merging master into own branch)
       } catch (error) {
         console.error(error.message);
       }
