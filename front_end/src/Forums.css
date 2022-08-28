@@ -4,9 +4,13 @@
 
 .btn {
   text-transform: unset !important;
+<<<<<<< HEAD
   box-shadow: none !important;
 }
 
+=======
+}
+>>>>>>> baf13bf (merging master into own branch)
 
 
 .HolyGrail {
@@ -35,6 +39,7 @@
   margin-top: 1em;
 }
 
+<<<<<<< HEAD
 ul.dropdown-menu {
   position: absolute;
   transform: translate(-135px, 45px);
@@ -43,6 +48,11 @@ ul.dropdown-menu {
 .HolyGrail-ads {
   flex: 0 0 20em;
   text-decoration: none !important;
+=======
+
+.HolyGrail-ads {
+  flex: 0 0 20em;
+>>>>>>> baf13bf (merging master into own branch)
 }
 
 
