@@ -108,7 +108,7 @@ export default function Comment({
                 />
               </div>
               <div className="align-self-center align-self-end mx-3 d-inline-flex flex-column text-meta">
-                <h5>First Last</h5>
+                <h5>{post.first_name} {post.last_name}</h5>
                 <div>
                   {user && user.job_title}
                 </div>

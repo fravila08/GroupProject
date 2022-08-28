@@ -177,6 +177,8 @@ def posts(request):
         return JsonResponse(list(all_posts), safe=False)
     if request.method == "POST":
         try:
+            first_name = request.data['first_name']
+            last_name = request.data['last_name']
             title = request.data['title']
             user = request.user
             company_name = request.data['company_name']
@@ -185,7 +187,7 @@ def posts(request):
             date_created = request.data['date_created']
             print('received date:', date_created)
             post = Posts.objects.create(
-                title=title, user=user, company_name=company_name, job_title=job_title, description=description, date_created=date_created)
+                first_name=first_name, last_name=last_name, title=title, user=user, company_name=company_name, job_title=job_title, description=description, date_created=date_created)
             post.save()
             print('views.py: post created ', post.date_created)
             db_post = Posts.objects.get(id=post.id)

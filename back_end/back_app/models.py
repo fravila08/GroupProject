@@ -53,6 +53,8 @@ class Interview(models.Model):
 
 
 class Posts(models.Model):
+    first_name = models.CharField(max_length=150, default="first_name")
+    last_name = models.CharField(max_length=150, default="last_name")
     title = models.CharField(max_length=150, default="New Forum")
     user = models.ForeignKey(AppUser, on_delete=models.CASCADE)
     date_created = models.DateTimeField(default=datetime.now())

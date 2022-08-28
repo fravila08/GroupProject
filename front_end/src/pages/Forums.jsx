@@ -172,7 +172,10 @@ export default function Forums({user}) {
 
   const addComment = async(text) => {
     let date = new Date();
+    console.log(user.first_name, user.last_name)
     let newPost = {
+      'first_name': user.first_name,
+      'last_name': user.last_name,
       'description': text,
       'title': title,
       'job_title': user.job_title,
@@ -185,6 +188,8 @@ export default function Forums({user}) {
       let serializedPost = await axios.post('forums', newPost);
       let post = JSON.parse(serializedPost.data);
       let fields = post[0].fields;
+      let first_name = fields['first_name'];
+      let last_name = fields['last_name'];
       let company_name = fields['company_name'];
       let date_created = fields['date_created'];
       let description = fields['description'];
@@ -194,7 +199,7 @@ export default function Forums({user}) {
       let parentId = null;
       let id = post[0]['pk'];
       console.log(id);
-      post =  {id, company_name, description, date_created, job_title, title, userId, parentId}
+      post =  {first_name, last_name, id, company_name, description, date_created, job_title, title, userId, parentId}
       setPostsList([post, ...postsList]);
       //need response object to include this data + timeCreated, photo and user 
       //(or first and last name)
