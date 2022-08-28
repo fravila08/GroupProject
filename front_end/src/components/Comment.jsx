@@ -8,7 +8,7 @@ import {
 import 'react-bootstrap-icons';
 import axios from 'axios';
 import CommentForm from './CommentForm';
-import {HiOutlinePhotograph, HiPlusSm} from 'react-icons/hi';
+import {HiOutlinePhotograph, HiPlusSm, HiDotsHorizontal, HiOutlineTrash, HiOutlinePencilAlt, HiX} from 'react-icons/hi';
 import {RiAttachment2} from 'react-icons/ri';
 import {TbMoodSmile} from 'react-icons/tb';
 import {BiSend} from 'react-icons/bi';
@@ -85,7 +85,7 @@ export default function Comment({
           let postId = activePost;
           let { data: remaining } = await axios.delete(`posts/${postId}`, { data: {postId: postId}});
           console.log('remaining:', remaining);
-          setPostsList(remaining.reverse());
+          setPostsList(remaining).reverse();
         }
         deleteAtId();
         setIsDeleting(false);
@@ -98,26 +98,42 @@ export default function Comment({
       <MDBCard className="card">
         <MDBCardBody>
           <MDBCardGroup className="top d-flex-column align-items-center">
-            <MDBCardGroup className="meta">
-              <img
-                src="https://icon-library.com/images/default-profile-icon/default-profile-icon-24.jpg"
-                class="rounded-circle z-depth-0"
-                alt="avatar image"
-                height="35"
-                width="35"
-              />
-              <MDBCardGroup className="d-inline-flex flex-column text-meta">
-                <div></div>
+              <div>
+                <img
+                  src="https://icon-library.com/images/default-profile-icon/default-profile-icon-24.jpg"
+                  class="rounded-circle z-depth-0"
+                  alt="avatar image"
+                  height="60"
+                  width="60"
+                />
+              </div>
+              <div className="align-self-center align-self-end mx-3 d-inline-flex flex-column text-meta">
+                <h5>First Last</h5>
                 <div>
-                  <small>Published: <ReactTimeAgo date={post.date_created} locale="en-US"/></small>
+                  {user && user.job_title}
                 </div>
-              </MDBCardGroup>
-
-            </MDBCardGroup>
+              </div>
+                <div class="ml-auto dropdown align-self-center">
+                  <button
+                    class="btn bg-white align-self-center"
+                    type="button"
+                    id="dropdownMenuButton"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    <HiDotsHorizontal />
+                  </button>
+                  <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
+                    <li><div class="dropdown-item" onClick={handleEditClick} ><HiOutlinePencilAlt />Edit</div></li>
+                    <li><div class="dropdown-item" onClick={handleDeleteClick}><HiOutlineTrash />Delete</div></li>
+                    <li><div class="dropdown-item" >Something else here</div></li>
+                  </ul>
+                </div>
 
           </MDBCardGroup>
-          <MDBCardTitle className="comments-title">{post.title}</MDBCardTitle>
-          <MDBCardText className="comment-text">
+          <MDBCardTitle className="pt-1 mb-0 comments-title">{post.title}</MDBCardTitle>
+          <small><ReactTimeAgo date={post.date_created} locale="en-US"/></small>
+          <MDBCardText className="pt-3 comment-text">
             { activePost===id && isEditing &&
             <div>
               <EditForm isEditing={isEditing} setIsEditing={setIsEditing} activePost={activePost} post={post} />
@@ -127,9 +143,6 @@ export default function Comment({
               !isEditing && <div>{post.description}</div>
             }
           </MDBCardText>
-          <span class="post-reply">Reply</span>
-            <span class="post-edit" onClick={handleEditClick}>Edit</span>
-            <span id="post-delete" onClick={handleDeleteClick}>Delete</span>
           <MDBCardGroup>
           
             <i class="bi bi-heart" style={{ fontSize: 18 }}></i>
