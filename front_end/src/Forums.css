@@ -4,13 +4,20 @@
 
 .btn {
   text-transform: unset !important;
-<<<<<<< HEAD
   box-shadow: none !important;
 }
 
-=======
+textarea {
+    border-style: none; 
+    border-color: Transparent; 
+    overflow: auto;
+    border: none;
+    outline: none;
 }
->>>>>>> baf13bf (merging master into own branch)
+
+textarea:focus {
+  outline:none
+}
 
 
 .HolyGrail {
@@ -39,7 +46,6 @@
   margin-top: 1em;
 }
 
-<<<<<<< HEAD
 ul.dropdown-menu {
   position: absolute;
   transform: translate(-135px, 45px);
@@ -48,11 +54,6 @@ ul.dropdown-menu {
 .HolyGrail-ads {
   flex: 0 0 20em;
   text-decoration: none !important;
-=======
-
-.HolyGrail-ads {
-  flex: 0 0 20em;
->>>>>>> baf13bf (merging master into own branch)
 }
 
 
