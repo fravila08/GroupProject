@@ -1,4 +1,3 @@
-
 /* #root {
   max-width: 1280px;
   margin: 0 auto;
@@ -43,7 +42,7 @@
 
 .container {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
   align-items: center;
   /* padding-bottom: 0px; */
   /* margin-left: 10%; */
@@ -132,24 +131,26 @@
 } */
 
 h1 {
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   margin-inline: 40px;
+  margin-top: 25px !important;
   /* font-variant: small-caps; */
 }
 
 .textbox {
   /* background-color: gainsboro;
   border: solid 2px gray; */
-  font-family: 'Franklin Gothic Medium', Arial, sans-serif;
-  margin-inline-start: 100px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  margin-inline-start: 50px;
   margin-block: 25px;
   /* padding-inline: 20px; */
-  font-variant:  small-caps;
+  /* font-variant:  small-caps; */
   width: 700px;
 }
 
 h2 {
   font-size: 36pt;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .circle{
@@ -169,10 +170,186 @@ h2 {
 .edit_profile {
   color: black;
   font-weight: 150;
-  background-color: gainsboro;
+  background-color: orange;
   border: solid 2px gray;
   border-radius: 7px;
   padding-inline: 10px;
   margin-inline-start: 100px;
 }
 
+.react-trello-board {
+  background-color: lightblue !important;
+  width: 100% !important;
+}
+
+/* .react-trello-lane {
+  background-color: red !important;
+} */
+
+.add_job_button {
+  border: solid 1px black !important;
+  width: 120px;
+  /* margin:auto !important; */
+  /* margin-left: 60% !important; */
+}
+
+.navbar {
+  padding-inline: 50px !important;
+  height: 100px !important;
+}
+
+.nav-item {
+  border: solid 0px black;
+}
+
+.navbar_brand {
+  font-weight: bolder !important;
+  font-size: 30pt !important;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif !important;
+}
+
+section {
+  background-color: whitesmoke !important;
+  border-radius: 10px !important;
+  border: solid 2px black;
+  /* display: fluid; */
+  /* width: 25%; */
+  /* margin-inline: 20px !important; */
+  padding-inline: 0px !important;
+}
+
+article {
+  background-color: rgba(255, 206, 0, 0.74)!important;
+  border: solid 1px black !important;
+  border-radius: 5px !important;
+  margin: 3% !important;
+  width: 94% !important;
+}
+
+body {
+  background-color: lightblue !important;
+  /* padding-inline: 20px !important; */
+}
+
+
+.dropdown_image {
+  margin-top: 20px;
+  border-radius: 75%;
+  height: 50px;
+  width: 50px;
+}
+
+.welcome {
+  margin-top: 20px;
+  margin-left: 50px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+}
+  
+.smooth-dnd-container.horizontal{
+  /* margin-inline: 10% !important; */
+  width: 100% !important;
+}
+
+.smooth-dnd-container vertical{
+  margin-inline: 5% !important;
+  /* width: 80% !important; */
+  /* margin-inline: 5% !important; */
+}
+
+/* .sc-iBkjds{
+  background-color: purple !important;
+} */
+
+/* .dtXYJt {
+  background-color: green !important;
+} */
+
+.logout_button {
+  background-color: whitespace !important;
+  border: solid 1px black !important;
+  color:black !important;
+}
+
+.comments {
+  padding: 50px !important;
+  width: 50%;
+  margin-inline: 25%;
+}
+
+.comment-form-title {
+  font-size: 16pt !important;
+  font-family: Arial, Helvetica, sans-serif !important;
+}
+
+aside {
+  height: 50px !important;
+  font-size: larger !important;
+}
+
+.comments-title {
+  font-size: 30pt;
+  font-weight: bold;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif !important;
+  width: 42%;
+  margin-inline: 29%;
+}
+
+#comment-title {
+  border-radius: 5px !important;
+  width: 100% !important;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif !important;
+  margin-block: 13px !important;
+  padding-left: 10px !important;
+}
+
+#comment-form-textarea {
+  border-radius: 5px !important;
+  width: 100% !important;
+  padding-block: 10px !important;
+  margin-bottom: 10px !important;
+}
+
+#comment-form-button {
+  border-radius: 5px !important;
+  width: 50% !important;
+  padding-block: 10px !important;
+  margin-block: 10px !important;
+  background-color: goldenrod !important;
+}
+
+.btn-primary {
+  background-color: goldenrod !important;
+}
+
+#searchBar {
+  /* border-radius: 7%; */
+  width: 300px;
+  margin-right: 10px;
+  border: solid 3px black;
+  padding-inline: 1px;
+  padding-left: 2px;
+}
+
+table {
+    margin-top: 100px !important;
+    border-radius: 10px !important;
+    margin-inline: 10% !important;
+    width: 80% !important;
+    background-color: black !important;
+}
+
+tbody {
+  margin: 100px !important;
+  border-radius: 10px !important;
+  background-color: lightblue !important;
+  width: 100% !important;
+}
+
+thead {
+  border-radius: 10px !important;
+}
+
+tr {
+  border-radius: 10px !important;
+}
