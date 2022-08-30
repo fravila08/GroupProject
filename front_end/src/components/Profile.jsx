@@ -34,26 +34,38 @@ function Profile({user}) {
         // <div style={{ display: "inline-flex", padding: 30, marginInline: '20%',  }}>
         <div>
             {/* profile pic */}
-            <div className='container'>
+            <div className='profile_info container'>
                 <div className='circle'>
                     {/* <Image className='pic' style={{ height: '500px'}} src={user && user.profile_picture} ></Image> */}
                     <Image className='pic' style={{ height: '500px'}} src="https://images.squarespace-cdn.com/content/v1/536e785fe4b0b84b930da48c/1649365755383-3MQD2BJVWVWR793E8IWY/Headshot+Photographer+020.jpg" ></Image>
                 </div>
-                <div className='profile_info'>
-                    <div className="textbox">
-                        <h2>Name: {user && user.first_name} {user && user.last_name}</h2>
+                {/* <div > */}
+                    <div className='profile_text'>
+                        <h3 className='profile_title'>Name: </h3>
+                        <h3 className='profile_title'>Current Job Title: </h3>
+                        <h3 className='profile_title'>Email Address: </h3>
+                        <h3 className='profile_title'>Member Since: </h3>
+                    </div>
+                    <div className='profile_text'>
+                        <h3>{user && user.first_name} {user && user.last_name}</h3>
+                        <h3>{user && user.job_title}</h3>
+                        <h3>{user && user.email}</h3>
+                        <h3>{user && user.date_joined}</h3>
+                    </div>
+                    {/* <div className="textbox">
+                        <h3>Name: {user && user.first_name} {user && user.last_name}</h3>
                     </div>
                     <div className="textbox">
-                        <h2>Current Job Title: {user && user.job_title}</h2>
+                        <h3>Current Job Title: {user && user.job_title}</h3>
                     </div>
                     <div className="textbox">
-                        <h2>Email Address: {user && user.email} </h2>
+                        <h3>Email Address: {user && user.email} </h3>
                     </div>
                     <div className="textbox">
-                        <h2>Member Since: {user && user.date_joined} </h2>
-                    </div>
-                    <h3><a className='edit_profile' href='/#/profile/edit'>Edit Profile</a></h3>
-                </div>
+                        <h3>Member Since: {user && user.date_joined} </h3>
+                    </div> */}
+                    {/* <h3><a className='edit_profile' href='/#/profile/edit'>Edit Profile</a></h3> */}
+                {/* </div> */}
             </div>
         </div>
   )
