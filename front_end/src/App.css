@@ -97,12 +97,16 @@ h3 {
 .react-trello-board {
   background-color: rgb(211, 249, 230) !important;
   width: 100% !important;
-  margin-top: 50px !important;
+  margin-top: 40px !important;
 }
 
-/* .react-trello-lane {
-  background-color: red !important;
-} */
+.react-trello-lane {
+  min-height: 200px !important;
+}
+.dtXYJt{
+  margin: 2vw !important;
+  min-height: 17vh !important;
+}
 
 .add_job_button {
   border: solid 1px black !important;
@@ -132,18 +136,18 @@ section {
   background-color: whitesmoke !important;
   border-radius: 10px !important;
   border: solid 2px black;
-  /* display: fluid; */
-  /* width: 25%; */
-  /* margin-inline: 20px !important; */
+  width: 400px;
   padding-inline: 0px !important;
+  min-height: 150px !important ;
 }
 
 article {
   background-color: rgba(141, 221, 141, 0.929)!important;
   border: solid 1px black !important;
   border-radius: 5px !important;
-  margin: 3% !important;
-  width: 94% !important;
+  margin: 10px !important;
+  width: 380px !important;
+  max-width: 400px!important;
 }
 
 body {
