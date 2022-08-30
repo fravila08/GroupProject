@@ -21,6 +21,7 @@ import AddButton from "../components/AddButton";
 import AddJobModal from "../components/AddJobModal";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
+import { viewport } from "@popperjs/core";
 
 function Dashboard(props) {
   const [activeCard, setActiveCard] = useState(null);
@@ -38,6 +39,12 @@ function Dashboard(props) {
 
   const [modal, setModal] = useState(false);
   const [addedJob, setAddedJob] = useState(false);
+  const laneStyle = {
+    width: 400,
+    maxWidth: 400,
+    margin: "auto",
+    marginBottom: 5,
+  };
 
   let data = {
     lanes: [
@@ -47,6 +54,9 @@ function Dashboard(props) {
         label: interestedJobs.length,
         cards: interestedJobs,
         disallowAddingCard: true,
+        laneStyle:{
+          ...laneStyle
+        }
       },
       {
         id: "lane2",
@@ -54,6 +64,9 @@ function Dashboard(props) {
         label: appliedJobs.length,
         cards: appliedJobs,
         disallowAddingCard: true,
+        style: {
+          width: 300,
+        },
       },
       {
         id: "lane3",
@@ -61,6 +74,9 @@ function Dashboard(props) {
         label: interviewedJobs.length,
         cards: interviewedJobs,
         disallowAddingCard: true,
+        style: {
+          width: 300,
+        },
       },
       {
         id: "lane4",
@@ -68,6 +84,9 @@ function Dashboard(props) {
         label: offerJobs.length,
         cards: offerJobs,
         disallowAddingCard: true,
+        style: {
+          width: 300,
+        },
       },
     ],
   };
