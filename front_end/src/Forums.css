@@ -17,23 +17,75 @@
 
 
 .HolyGrail-body {
+  margin-top: 50px;
   display: flex;
   flex: 1;
 }
 
 .HolyGrail-content {
+  padding: 10px;
+  height: 240px !important;
+  width: 100% !important;
+  margin-inline: 2% !important;
+  /* border: solid 1px darkgray; */
+  box-shadow: 1px 3px 3px 0px grey;
+  border-radius: 8px;
+  background-color: white;
   flex: 1;
 }
 
 
 .HolyGrail-ads {
-
+  height: 500px !important;
+  width: 10% !important;
+  margin-inline: 3% !important;
+  /* border: solid 1px darkgray; */
+  box-shadow: 1px 3px 3px 0px grey;
+  border-radius: 8px;
+  background-color: white;
   flex: 0 0 18em;
 }
 
+.nav-text-box {
+  padding-top: 10px !important;
+  padding-left: 10px !important;
+  height: 100px !important;
+  width: 200px !important;
+}
+
+.nav-text {
+  height: 100px !important;
+  font-size: 30px !important;
+}
 
 .HolyGrail-nav {
   /* put the nav on the left */
+  /* padding: 5px; */
+  /* height: 500px !important; */
+  /* width: 200px !important; */
+  margin-inline: 3% !important;
+  box-shadow: 1px 3px 3px 0px grey;
+  border-radius: 8px;
+  background-color: white;
+  /* flex: 0 0 18em; */
   flex: 0 0 22em;
   order: -1;
+}
+
+.aside_ul {
+  padding: 0px !important;
+}
+
+.comments {
+  font-size: 14pt !important;
+  margin-bottom: 100px !important;
+}
+
+.comment {
+  margin-top: 30px !important;
+  width: 100%;
+}
+
+#comment-form-textarea {
+  height: 200px !important;
 }

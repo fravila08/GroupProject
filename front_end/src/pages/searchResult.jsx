@@ -36,7 +36,7 @@ const SearchResult = () => {
             <NavBar />
             {result.length > 0 ?
                 <div className="container-fluid">
-                    <table className="table table-dark">
+                    <table className="table">
                         <thead>
                             <tr>
                                 <td>COMPANY</td>
@@ -49,7 +49,7 @@ const SearchResult = () => {
                             {result.map((item, index) => (
                                 <tr key={index}>
                                     <td>{item.company_name}</td>
-                                    <td>{item.detail_url}</td>
+                                    <td>{item.title}</td>
                                     <td>{item.city}, {item.state} </td>
                                     <td><a href={item.detail_url} target="blank"><button>More Info</button></a></td>
                                     <td><Interested addJobfromSearch={addJobfromSearch} item={item} /></td>
@@ -64,8 +64,8 @@ const SearchResult = () => {
                     alt="loading"
                     style={{
                         height: "200px",
-                        width: "200px",
-                        marginLeft: "50%"
+                        width: "20%",
+                        marginLeft: "40%"
                     }} />
             }
         </div>

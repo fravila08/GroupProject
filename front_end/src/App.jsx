@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import axios from 'axios';
-import './App.css'
+import '../src/App.css';
 import { HashRouter, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home'
 import NotFound from './pages/NotFound'

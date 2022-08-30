@@ -47,13 +47,13 @@ function leftNavSidebar() {
 function ProfileSidebar({user}) {
   return (
     <div class="hidden web:col-span-12 lg:block lg:order-2 web:lg:col-span-4">
-      <ul class="flex flex-col -my-2.5">
+      <ul class="aside_ul flex flex-col -my-2.5">
         <div class="bg-surface-50 text-basicSurface-500 shadow flex flex-col justify-between sm:rounded-lg overflow-hidden block-welcome-member">
           
         </div>
-        <div class="flex-1 px-4 py-5 sm:p-6 overflow-hidden text-center">
-          <div class="text-sm mb-5 text-basicSurface-400">Good morning,</div>
-          <div class="text-xl mb-1 text-basicSurface-900 font-medium truncate"><a href="/member/DcCEolocve">{user && user.first_name}</a></div>
+        <div class="aside_div flex-1 px-4 py-5 sm:p-6 overflow-hidden text-center">
+          <div class="text-sm mb-5 text-basicSurface-400" style={{fontSize: '20pt'}}>Good morning,</div>
+          <div class="text-xl mb-1 text-basicSurface-900 font-medium truncate" style={{fontSize: '20pt'}}><a href="/member/DcCEolocve">{user && user.first_name}</a></div>
         </div>
       </ul>
     </div>
@@ -188,9 +188,9 @@ export default function Forums({user}) {
       <div class="HolyGrail-body">
         <main class="HolyGrail-content">
          <div className="comments">
-            <h3 className="comments-title">Social Page</h3>
+            <h3 className="comments-title">Careers Forum</h3>
             <div className="comment-form-title">Write a comment</div>
-            <CommentForm className="d-flex flex-column-reverse" submitLabel="Write" 
+            <CommentForm className="comment-form-body d-flex flex-column-reverse" submitLabel="Write" 
               title={title} setTitle={setTitle} handleTitleEntry={handleTitleEntry} 
               handleSubmit={addComment} text={text} setText={setText} onChange={handleTextEntry} />
             <div className="comments-container d-flex flex-column-reverse">
@@ -199,11 +199,11 @@ export default function Forums({user}) {
           </div>
         </main>
         <nav class="HolyGrail-nav">
-          <div class="sticky top-[var(--c-top-bar-height)] max-h-[calc(100vh-var(--c-top-bar-height)-var(--frame-top-offset))] scrollbar-hide overscroll-contain w-[var(--frame-navigation-width)] shrink-0 mr-4 pr-1 hidden lg:block">
+          <div class="nav-text-box sticky top-[var(--c-top-bar-height)] max-h-[calc(100vh-var(--c-top-bar-height)-var(--frame-top-offset))] scrollbar-hide overscroll-contain w-[var(--frame-navigation-width)] shrink-0 mr-4 pr-1 hidden lg:block">
             <div class="flex flex-col space-y-8 isolate w-full block-main-menu">
               <div class="space-y-1" role="group">
                 <a class="cursor-pointer transition duration-100 ease-in-out group flex items-center leading-5 rounded-md w-full bg-main-200 text-basicMain-900 px-3 py-2">
-                  <span className="flex-grow truncate">
+                  <span className="nav-text flex-grow truncate">
                     Home
                   </span>
                 </a>
@@ -217,6 +217,7 @@ export default function Forums({user}) {
       </div>
       <footer>…</footer>
     </body>
+    <div style={{height: '1000px'}}></div>
   </div>
 
   )

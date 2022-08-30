@@ -23,7 +23,7 @@ function ProfilePage({user}) {
     return (
         <div>
             <NavBar />
-            <h1>My Profile </h1>
+            <h1 style={{marginLeft: '50px'}}>My Profile </h1>
             <Profile user={user}/>
             
         </div>
