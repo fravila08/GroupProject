@@ -100,11 +100,12 @@ h3 {
   margin-top: 40px !important;
 }
 
-/* .react-trello-lane {
-  background-color: red !important;
-} */
+.react-trello-lane {
+  min-height: 200px !important;
+}
 .dtXYJt{
   margin: 2vw !important;
+  min-height: 17vh !important;
 }
 
 .add_job_button {
@@ -135,10 +136,9 @@ section {
   background-color: whitesmoke !important;
   border-radius: 10px !important;
   border: solid 2px black;
-  /* display: fluid; */
   width: 400px;
-  /* margin-inline: 20px !important; */
   padding-inline: 0px !important;
+  min-height: 150px !important ;
 }
 
 article {
